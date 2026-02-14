@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { services } from '../../data/services';
 
 const Container = styled.div`
@@ -76,57 +77,102 @@ const ServicesGrid = styled.div`
   }
 `;
 
-const ServiceCard = styled.div`
+const ServiceCard = styled(motion.div)`
   background: rgba(20, 25, 35, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 1.75rem;
+  padding: 1.25rem;
+  padding-left: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.75rem;
   transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
+  border-left: 3px solid ${({ accentcolor }) => accentcolor || '#3B82F6'};
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      135deg,
+      ${({ accentcolor }) => accentcolor || '#3B82F6'},
+      transparent 50%,
+      ${({ accentcolor }) => accentcolor || '#3B82F6'}
+    );
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+    border-color: ${({ accentcolor }) => accentcolor || '#3B82F6'};
+    box-shadow: 
+      0 8px 30px rgba(0, 0, 0, 0.5),
+      0 0 20px ${({ accentcolor }) => `${accentcolor}40` || 'rgba(59, 130, 246, 0.25)'};
+  }
+
+  &:hover::before {
+    opacity: 0.15;
   }
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
-    gap: 1rem;
+    padding: 1rem;
+    padding-left: 1.25rem;
+    gap: 0.65rem;
   }
+`;
+
+const CardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0;
+`;
+
+const ServiceNumber = styled.span`
+  font-size: 12px;
+  font-weight: 700;
+  color: ${({ color }) => color || '#3B82F6'};
+  opacity: 0.6;
+  letter-spacing: 1px;
 `;
 
 const CategoryBadge = styled.span`
   display: inline-block;
-  padding: 6px 14px;
+  padding: 4px 12px;
   background: ${({ color }) => color || '#3B82F6'};
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   border-radius: 20px;
   text-transform: capitalize;
   width: fit-content;
+  box-shadow: 0 2px 8px ${({ color }) => `${color}50` || 'rgba(59, 130, 246, 0.3)'};
 `;
 
 const IconsContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
 `;
 
-const IconWrapper = styled.div`
-  width: 32px;
-  height: 32px;
+const IconWrapper = styled(motion.div)`
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 4px;
   transition: all 0.2s ease;
 
   img {
@@ -137,41 +183,41 @@ const IconWrapper = styled.div`
   }
 
   &:hover {
-    transform: scale(1.15);
+    transform: scale(1.15) rotate(5deg);
     
     img {
-      filter: brightness(1.1);
+      filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
     }
   }
 `;
 
 const ServiceTitle = styled.h3`
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
   margin: 0;
   line-height: 1.3;
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
 `;
 
 const ServiceDescription = styled.p`
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.4;
   color: ${({ theme }) => theme.text_secondary};
   margin: 0;
   flex-grow: 1;
   
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 `;
 
 const LearnMoreLink = styled.button`
   color: ${({ theme }) => theme.primary};
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
   display: inline-flex;
@@ -317,19 +363,75 @@ const Services = () => {
     setSelectedService(null);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const iconVariants = {
+    hover: {
+      y: -3,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
     <Container id="services">
       <Wrapper>
         <Title>Services</Title>
         <Subtitle>What I Do</Subtitle>
         <Description>How I Help Businesses Build Products</Description>
-        <ServicesGrid>
-          {services.map((service) => (
-            <ServiceCard key={service.id}>
-              <CategoryBadge color={service.categoryColor}>{service.category}</CategoryBadge>
+        <ServicesGrid
+          as={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.id}
+              variants={cardVariants}
+              accentcolor={service.categoryColor}
+              whileHover={{ y: -5 }}
+            >
+              <CardHeader>
+                <ServiceNumber color={service.categoryColor}>
+                  {String(index + 1).padStart(2, '0')}
+                </ServiceNumber>
+                <CategoryBadge color={service.categoryColor}>{service.category}</CategoryBadge>
+              </CardHeader>
               <IconsContainer>
                 {service.icons.map((icon, idx) => (
-                  <IconWrapper key={idx}>
+                  <IconWrapper
+                    key={idx}
+                    variants={iconVariants}
+                    whileHover="hover"
+                  >
                     <img src={icon} alt={`${service.title} icon ${idx + 1}`} />
                   </IconWrapper>
                 ))}

@@ -1,12 +1,12 @@
 export const Bio = {
     name: "Sunny Kumar",
     roles: [
-      "Frontend Developer",
+      "Full Stack MERN Developer",
+      "React & Next.js Developer",
       "Software Engineer",
-      "React Developer",
     ],
     description:
-      "Frontend Software Engineer with 2 years of experience building scalable and high-performance web applications using JavaScript (ES6+), React.js, and modern frontend technologies. Experienced in developing responsive, mobile-first web interfaces that perform seamlessly across desktop and mobile devices. Strong expertise in REST API integration, performance optimization, debugging production issues, and maintaining clean, modular code aligned with UX standards.",
+      "I'm Sunny Kumar, a Full-Stack MERN Developer passionate about building web applications that solve real problems. With 2+ years of professional experience at NeetSupport and Techtweek Infotech, I've delivered scalable solutions serving thousands of users daily. I specialize in React.js, Next.js, Node.js, Express, and MongoDB, creating responsive, high-performance applications with clean code and modern architecture. I believe in pixel-perfect UIs, seamless user experiences, and reliable deployments. Open to freelance projects and full-time opportunities where I can contribute to meaningful products.",
     github: "https://github.com/Sunnykrp",
     resume:
       "https://drive.google.com/file/d/10u6ybbXbnFyU_ZiITBgn8GLi1AVuX1aR/view?usp=sharing",
@@ -14,6 +14,7 @@ export const Bio = {
     twitter: "https://twitter.com/sunnykrp3",
     insta: "https://www.instagram.com/_mr_sunny_28/",
     facebook: "https://www.facebook.com/profile.php?id=100006542808391",
+    whatsapp: "https://wa.me/919876543210",
   };
   
   export const skills = [
@@ -67,6 +68,89 @@ export const Bio = {
       ],
     },
     {
+      title: "Backend",
+      skills: [
+        {
+          name: "Node.js",
+          image: "https://nodejs.org/static/images/logo.svg",
+        },
+        {
+          name: "Express.js",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
+        },
+        {
+          name: "NestJS",
+          image:
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+        },
+        {
+          name: "GraphQL",
+          image: "https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg",
+        },
+        {
+          name: "REST API",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/c/c3/API_logo.png",
+        },
+      ],
+    },
+    {
+      title: "Database",
+      skills: [
+        {
+          name: "MongoDB",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
+        },
+        {
+          name: "PostgreSQL",
+          image: "https://www.postgresql.org/media/img/about/press/elephant.png",
+        },
+        {
+          name: "MySQL",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
+        },
+        {
+          name: "Redis",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg",
+        },
+        {
+          name: "Firebase",
+          image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
+        },
+      ],
+    },
+    {
+      title: "DevOps & Cloud",
+      skills: [
+        {
+          name: "Docker",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+        },
+        {
+          name: "Kubernetes",
+          image: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg",
+        },
+        {
+          name: "Google Cloud (GCP)",
+          image: "https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg",
+        },
+        {
+          name: "AWS",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+        },
+        {
+          name: "Nginx",
+          image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg",
+        },
+      ],
+    },
+    {
       title: "Development Tools",
       skills: [
         {
@@ -93,6 +177,16 @@ export const Bio = {
           name: "Postman",
           image:
             "https://camo.githubusercontent.com/93b32389bf746009ca2370de7fe06c3b5146f4c99d99df65994f9ced0ba41685/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d69636f6e2e737667",
+        },
+        {
+          name: "Webpack",
+          image:
+            "https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original.svg",
+        },
+        {
+          name: "Vite",
+          image:
+            "https://raw.githubusercontent.com/vitejs/vite/main/docs/public/logo.svg",
         },
       ],
     },
@@ -203,6 +297,15 @@ export const Bio = {
       grade: "78.15%",
       desc: "Completed Bachelor of Engineering with strong foundation in software development, data structures, algorithms, and web technologies. Focused on modern frontend frameworks and full-stack development.",
       degree: "Bachelor of Engineering",
+    },
+    {
+      id: 1,
+      img: "https://upload.wikimedia.org/wikipedia/en/5/52/Sant_Longowal_Institute_of_Engineering_and_Technology_Logo.png",
+      school: "Sant Longowal Institute of Engineering & Technology",
+      date: "2018 - 2021",
+      grade: "75.40%",
+      desc: "Completed Diploma in Engineering with focus on core engineering fundamentals, technical skills, and practical applications. Built strong foundation in programming and problem-solving.",
+      degree: "Diploma in Engineering",
     },
   ];
   

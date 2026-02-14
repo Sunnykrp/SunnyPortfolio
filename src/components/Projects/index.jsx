@@ -12,7 +12,7 @@ const Projects = ({openModal,setOpenModal}) => {
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          A showcase of web applications and development projects demonstrating practical implementation of modern technologies and best practices.
+          Real-world web applications built with modern technologies. From CRM dashboards to responsive websites, each project demonstrates practical implementation of MERN stack and best practices.
         </Desc>
         <ToggleButtonGroup >
           {toggle === 'all' ?

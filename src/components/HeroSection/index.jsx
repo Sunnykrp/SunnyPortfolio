@@ -42,9 +42,9 @@ const HeroSection = () => {
           <HeroContent>
             <ProfileImage src={HeroImg} alt={profileName} loading="lazy" />
 
-            {/* Freelance positioning */}
+            {/* Freelance & Job positioning */}
             <AvailabilityBadge>
-              Available for Freelance • MERN + Next.js
+              Open for Full-Time Roles & Freelance Projects
             </AvailabilityBadge>
 
             <MainTitle>Full-Stack MERN & Next.js Developer</MainTitle>
@@ -59,20 +59,25 @@ const HeroSection = () => {
               architecture, and reliable deployments.
             </SubTitle>
 
-            <TrustLine>
-              ✅ Production-ready code • ✅ Fast delivery • ✅ Post-launch support
-            </TrustLine>
-
             <ButtonContainer>
-              {/* Main CTA for freelancing */}
-              <PrimaryButton href="#contact">Book a Free Call →</PrimaryButton>
+              {/* Main CTA */}
+              <PrimaryButton href="#contact">Get in Touch →</PrimaryButton>
 
-              {/* Secondary CTA */}
+              {/* Resume Download */}
+              <SecondaryButton 
+                href={Bio.resume} 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume 📄
+              </SecondaryButton>
+
+              {/* Projects CTA */}
               <SecondaryButton href="#projects">See Projects</SecondaryButton>
 
-              {/* Optional: WhatsApp CTA (replace with your number)
+              {/* Optional: WhatsApp CTA (uncomment and add your number in Bio.whatsapp)
               <SecondaryButton
-                href="https://wa.me/91XXXXXXXXXX"
+                href={Bio.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -84,17 +89,17 @@ const HeroSection = () => {
             <StatsContainer>
               <StatItem>
                 <StatNumber>50+</StatNumber>
-                <StatLabel>Web Apps Delivered</StatLabel>
+                <StatLabel>Projects Delivered</StatLabel>
               </StatItem>
 
               <StatItem>
-                <StatNumber>3+</StatNumber>
-                <StatLabel>Years Building MERN</StatLabel>
+                <StatNumber>10K+</StatNumber>
+                <StatLabel>Daily Active Users</StatLabel>
               </StatItem>
 
               <StatItem>
-                <StatNumber>Fast</StatNumber>
-                <StatLabel>Deployments & Support</StatLabel>
+                <StatNumber>2+</StatNumber>
+                <StatLabel>Years Experience</StatLabel>
               </StatItem>
             </StatsContainer>
 

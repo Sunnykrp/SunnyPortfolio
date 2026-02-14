@@ -3,9 +3,16 @@ export const experiences = [
     id: 1,
     img: "https://via.placeholder.com/150?text=Neet+Support",
     role: "Software Engineer",
-    company: "Neet Support",
+    company: "NeetSupport.com",
     date: "Aug 2024 - Present",
-    desc: "Developed and maintained scalable React.js and Next.js web applications used by thousands of users. Built responsive, mobile-first layouts using HTML5, CSS3, and Tailwind CSS ensuring cross-browser compatibility. Integrated RESTful APIs and optimized frontend data handling for improved rendering performance. Reduced page load time by implementing lazy loading, code splitting, and performance optimizations. Performed debugging and production issue resolution using Chrome DevTools and browser profiling tools. Collaborated closely with UX team to implement pixel-perfect designs and enhance user experience.",
+    desc: [
+      "Developed and maintained scalable React.js and Next.js web applications used by thousands of users.",
+      "Built responsive, mobile-first layouts using HTML5, CSS3, and Tailwind CSS ensuring cross-browser compatibility.",
+      "Integrated RESTful APIs and optimized frontend data handling for improved rendering performance.",
+      "Reduced page load time by implementing lazy loading, code splitting, and performance optimizations.",
+      "Performed debugging and production issue resolution using Chrome DevTools and browser profiling tools.",
+      "Collaborated closely with UX team to implement pixel-perfect designs and enhance user experience.",
+    ],
     skills: [
       "React.js",
       "Next.js",
@@ -25,7 +32,13 @@ export const experiences = [
     role: "Frontend Developer",
     company: "Techtweek Infotech",
     date: "Jan 2024 - Jul 2024",
-    desc: "Built reusable and scalable React components following clean coding standards and best practices. Ensured smooth web application performance across desktop and mobile platforms. Collaborated with backend teams for seamless REST API integration.",
+    desc: [
+      "Built reusable and scalable React components following clean coding standards and best practices.",
+      "Ensured smooth web application performance across desktop and mobile platforms.",
+      "Collaborated with backend teams for seamless REST API integration.",
+      "Implemented responsive design patterns for consistent user experience across devices.",
+      "Participated in code reviews and contributed to improving development workflows.",
+    ],
     skills: [
       "React.js",
       "JavaScript",

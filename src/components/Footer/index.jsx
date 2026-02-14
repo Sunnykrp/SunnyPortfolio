@@ -178,7 +178,7 @@ function Footer() {
         </SocialGrid>
 
         <AvailabilityText>
-          <span>Open to opportunities</span> and collaborations.
+          <span>Available for freelance projects</span> and full-time opportunities.
         </AvailabilityText>
       </FooterWrapper>
     </FooterContainer>

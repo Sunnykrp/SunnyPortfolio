@@ -266,19 +266,24 @@ export const SecondaryButton = styled.a`
 
 export const StatsContainer = styled.div`
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin: 40px 0;
-  padding: 30px 0;
-  border-top: 1px solid ${({ theme }) => theme.text_secondary}30;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(133, 76, 230, 0.05) 0%, rgba(133, 76, 230, 0.02) 100%);
+  border: 1px solid rgba(133, 76, 230, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
 
   @media (max-width: 768px) {
-    gap: 40px;
+    gap: 32px;
+    padding: 24px;
   }
 
   @media (max-width: 640px) {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     align-items: center;
+    padding: 20px;
   }
 `;
 
@@ -287,33 +292,58 @@ export const StatItem = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  flex: 1;
+  padding: 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(133, 76, 230, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  &:not(:last-child) {
+    border-right: 1px solid rgba(133, 76, 230, 0.15);
+    
+    @media (max-width: 640px) {
+      border-right: none;
+      border-bottom: 1px solid rgba(133, 76, 230, 0.15);
+      padding-bottom: 20px;
+    }
+  }
 `;
 
 export const StatNumber = styled.h3`
-  font-size: 48px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.primary};
+  font-size: 52px;
+  font-weight: 800;
+  background: linear-gradient(135deg, ${({ theme }) => theme.primary} 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0;
   line-height: 1;
+  letter-spacing: -1px;
 
   @media (max-width: 768px) {
-    font-size: 40px;
+    font-size: 44px;
   }
 
   @media (max-width: 640px) {
-    font-size: 36px;
+    font-size: 38px;
   }
 `;
 
 export const StatLabel = styled.p`
-  font-size: 16px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_secondary};
+  font-size: 15px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
   margin: 0;
   text-align: center;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
 
   @media (max-width: 640px) {
-    font-size: 14px;
+    font-size: 13px;
   }
 `;
 
