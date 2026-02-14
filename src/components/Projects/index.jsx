@@ -12,7 +12,7 @@ const Projects = ({openModal,setOpenModal}) => {
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+          A showcase of web applications and development projects demonstrating practical implementation of modern technologies and best practices.
         </Desc>
         <ToggleButtonGroup >
           {toggle === 'all' ?
@@ -41,12 +41,12 @@ const Projects = ({openModal,setOpenModal}) => {
         </ToggleButtonGroup>
         <CardContainer>
           {toggle === 'all' && projects
-            .map((project) => (
-              <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
+            .map((project, index) => (
+              <ProjectCard key={index} project={project} openModal={openModal} setOpenModal={setOpenModal}/>
             ))}
           {projects
-            .filter((item) => item.category == toggle)
-            .map((project) => (
+            .filter((item) => item.category === toggle)
+            .map((project, index) => (
               <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
             ))}
         </CardContainer>

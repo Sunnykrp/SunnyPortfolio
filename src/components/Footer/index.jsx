@@ -1,111 +1,185 @@
 import styled from 'styled-components';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import XIcon from '@mui/icons-material/X';
+import EmailIcon from '@mui/icons-material/Email';
+import TelegramIcon from '@mui/icons-material/Telegram';
 import { Bio } from '../../data/constants';
 
 const FooterContainer = styled.div`
   width: 100%;
-  padding: 2rem 0;
+  padding: 4rem 0;
   display: flex;
   justify-content: center;
-  //background: linear-gradient(100.26deg, rgba(0, 102, 255, 0.05) 42.33%, rgba(150, 0, 225, 0.05) 127.07%);
+  background-color: ${({ theme }) => theme.card_light};
 `;
-
 
 const FooterWrapper = styled.footer`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1350px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
   align-items: center;
   padding: 1rem;
   color: ${({ theme }) => theme.text_primary};
 `;
 
-const Logo = styled.h1`
+const Title = styled.h2`
+  font-size: 42px;
+  text-align: center;
   font-weight: 600;
-  font-size: 20px;
-  color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text_primary};
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
-const Nav = styled.nav`
+const SocialGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 4rem;
   width: 100%;
   max-width: 800px;
-  margin-top: 0.5rem;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+`;
+
+const SocialButton = styled.a`
+  position: relative;
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  align-items: center;
   justify-content: center;
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    text-align: center;
-    font-size: 12px;
-  }
-`;
-
-const NavLink = styled.a`
-color: ${({ theme }) => theme.text_primary};
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, ${({ theme }) => theme.primary}, ${({ theme }) => theme.primary}80);
+    z-index: -1;
+    transition: all 0.5s ease;
+  }
+
+  &:hover:before {
+    left: 0;
+  }
+
   &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-  @media (max-width: 768px) {
-    font-size: 1rem;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 `;
 
-const SocialMediaIcons = styled.div`
-  display: flex;
-  margin-top: 1rem;
-`;
-
-const SocialMediaIcon = styled.a`
-  display: inline-block;
-  margin: 0 1rem;
+const IconWrapper = styled.span`
   font-size: 1.5rem;
   color: ${({ theme }) => theme.text_primary};
-  transition: color 0.2s ease-in-out;
-  &:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ButtonText = styled.p`
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+  margin: 0;
+`;
+
+const AvailabilityText = styled.p`
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+  
+  span {
     color: ${({ theme }) => theme.primary};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+    margin-top: 3rem;
   }
 `;
 
-const Copyright = styled.p`
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.soft2};
-  text-align: center;
-`;
+const socialLinks = [
+  {
+    name: 'GitHub',
+    icon: <GitHubIcon />,
+    username: 'Sunnykrp',
+    url: Bio.github,
+  },
+  {
+    name: 'LinkedIn',
+    icon: <LinkedInIcon />,
+    username: 'sunny-kumar',
+    url: Bio.linkedin,
+  },
+  {
+    name: 'Twitter',
+    icon: <XIcon />,
+    username: 'sunnykrp3',
+    url: Bio.twitter,
+  },
+  {
+    name: 'Instagram',
+    icon: <InstagramIcon />,
+    username: '_mr_sunny_28',
+    url: Bio.insta,
+  },
+  {
+    name: 'Telegram',
+    icon: <TelegramIcon />,
+    username: 'sunnykumar',
+    url: '#',
+  },
+  {
+    name: 'Email',
+    icon: <EmailIcon />,
+    username: 'sunnykrp3@gmail.com',
+    url: 'mailto:sunnykrp3@gmail.com',
+  },
+];
 
 function Footer() {
   return (
-    <FooterContainer>
+    <FooterContainer id="contact">
       <FooterWrapper>
-        <Logo>Sunny Kumar</Logo>
-        <Nav>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#experience">Experience</NavLink>
-          <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#education">Education</NavLink>
-        </Nav>
-        <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display"><FacebookIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display"><TwitterIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
-        </SocialMediaIcons>
-        <Copyright>
-          &copy; 2024 Sunny kumar. All rights reserved.
-        </Copyright>
+        <Title>Get in Touch</Title>
 
+        <SocialGrid>
+          {socialLinks.map((link, index) => (
+            <SocialButton
+              key={index}
+              href={link.url}
+              target={link.name === 'Email' ? '_self' : '_blank'}
+              rel="noopener noreferrer"
+            >
+              <IconWrapper>{link.icon}</IconWrapper>
+              <ButtonText>{link.username}</ButtonText>
+            </SocialButton>
+          ))}
+        </SocialGrid>
+
+        <AvailabilityText>
+          <span>Open to opportunities</span> and collaborations.
+        </AvailabilityText>
       </FooterWrapper>
     </FooterContainer>
   );
